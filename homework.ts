@@ -9,13 +9,14 @@ enum DIRECTION {
   TOP = "TOP",
   BOTTOM = "BOTTOM"
 }
-const calcInvestitions = (amountOfMoney:number, percent:number, directionOfMarket?:DIRECTION):number =>{
-  let percentOfamount = amountOfMoney / 100
-  if (directionOfMarket === DIRECTION.TOP){
-    return amountOfMoney + percentOfamount
-  } else if (directionOfMarket === DIRECTION.BOTTOM){
-    return amountOfMoney - percentOfamount
-  }else {
+const calcInvestitions = (amountOfMoney: number, percent: number, directionOfMarket?: DIRECTION): number => {
+  if(directionOfMarket === DIRECTION.TOP){
+    return amountOfMoney + (percent * amountOfMoney / 100)
+  }
+  if(directionOfMarket === DIRECTION.BOTTOM){
+    return amountOfMoney - (percent * amountOfMoney / 100)
+  }
+  else{
     return amountOfMoney
   }
 }
